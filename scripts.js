@@ -42,35 +42,50 @@ function playGame(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const input = document.querySelector("#inputCell");
-    const inputBtn = document.querySelector("#inputBtn");
-    const inputLabel = document.querySelector("#inputLabel");
-    const imagenes = document.querySelector("#imagenes");
-    const puntaje = document.querySelector("#puntaje");
-    inputBtn.addEventListener("click", function() {
-        const cuantasRondas = input.value;
-        inputDiv.style.display = "none";
-        inputLabel.textContent = cuantasRondas + " victorias para ganar!";
-        imagenes.style.display = "flex";
-        puntaje.style.display = "flex";
-     
-    });
-    const piedraImg = document.querySelector("#piedra");
-    const papelImg = document.querySelector("#papel");
-    const tijeraImg = document.querySelector("#tijera");
-    piedraImg.addEventListener("click", function() {
-        storeValue("ROCK");
-    });
-    papelImg.addEventListener("click", function() {
-        storeValue("PAPER");
-    });
-    tijeraImg.addEventListener("click", function() {
-        storeValue("SCISSORS");
-    });
-    function storeValue(value) {
-        playerSelection = value;
-        console.log(value);
-    }
+const input = document.querySelector("#inputCell");
+const inputBtn = document.querySelector("#inputBtn");
+const inputLabel = document.querySelector("#inputLabel");
+
+const puntaje = document.querySelector("#puntaje");
+const puntajePlayerDisplay = document.querySelector("puntajePlayerDisplay");
+const puntajeComDisplay = document.querySelector("puntajeComDisplay");
+
+const imagenes = document.querySelector("#imagenes");
+const piedraImg = document.querySelector("#piedra");
+const papelImg = document.querySelector("#papel");
+const tijeraImg = document.querySelector("#tijera");
+
+inputBtn.addEventListener("click", function() {
+    if (isNaN(input.value) || input.value <= 0) {
+        inputLabel.textContent = "Debes ingresar un numero entre 1 y 100!";
+    }   else { 
+        if (input.value === "1") {
+            const cuantasRondas = input.value;
+            inputDiv.style.display = "none";
+            inputLabel.textContent = "Gol de oro! " + cuantasRondas + " victoria para ganar!";
+            imagenes.style.display = "flex ";
+            puntaje.style.display = "flex";   
+        }   else {
+            const cuantasRondas = input.value;
+            inputDiv.style.display = "none";
+            inputLabel.textContent = cuantasRondas + " victorias para ganar!";
+            imagenes.style.display = "flex ";
+            puntaje.style.display = "flex";   
+        }
+            
+        } 
 });
+piedraImg.addEventListener("click", function() {
+    storeValue("ROCK");
+});
+papelImg.addEventListener("click", function() {
+    storeValue("PAPER");
+});
+tijeraImg.addEventListener("click", function() {
+    storeValue("SCISSORS");
+});
+function storeValue(value) {
+    playerSelection = value;
+    console.log(playerSelection);
+}
 

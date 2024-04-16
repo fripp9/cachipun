@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper & Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
-<body>
-    <script src="./scripts.js"></script>
-    
+<body>    
     <h1>Cachipún</h1>
 
     <div id="intro">
-        <label id="inputLabel">¿Cuántas victorias para ganar?</label><br>
-        <div id="inputDiv"><input id="inputCell" minlength="1" maxlength="2" placeholder="5" size="5"/>
-        <button id="inputBtn">Go</button>
+        <label id="inputLabel" for="inputCell">¿Cuántas victorias para ganar?</label><br>
+        <div id="inputDiv">
+            <input id="inputCell" minlength="1" maxlength="2" placeholder="5" size="5"/>
+            <button id="inputBtn">Go</button>
         </div>
     </div>
 
     <div id="imagenes">
-        <img id="piedra" class="imagen" src="images/piedra.png" />
-        <img id="papel" class="imagen" src="images/papel.png" />
-        <img id="tijera" class="imagen" src="images/tijera.png" />
+        <img id="piedra" class="imagen" src="images/piedra.png" draggable="false"/>
+        <img id="papel" class="imagen" src="images/papel.png" draggable="false"/>
+        <img id="tijera" class="imagen" src="images/tijera.png" draggable="false"/>
     </div>
 
     <div id="puntaje">
